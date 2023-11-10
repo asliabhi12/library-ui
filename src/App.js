@@ -1,14 +1,16 @@
 import './App.css';
 import Home from './components/Home'
 import TopNav from './components/TopNav';
-import SideNav from './components/SideNav'
+import AddBooks from './pages/AddBooks';
+// import SideNav from './components/SideNav'
 
 function App() {
   return (
     <div className="App" >
       <TopNav/>
-      <SideNav/>
-      <Home />
+      <AddBooks/>
+      {/* <SideNav/> */}
+      {/* <Home /> */}
     </div>
   );
 }
