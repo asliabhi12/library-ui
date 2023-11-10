@@ -1,38 +1,207 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: "Lora", sans-serif;
+  background: #FFF;
+  overflow-x: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#top-nav{
+
+  overflow: hidden;
+  position: fixed;
+  min-height: 20vh;
+  width: 100vw;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 14px solid #000;
+  background-color: #fff;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 20vh;
+}
+
+.logo {
+  width: 6.0625rem;
+height: 6.75rem;
+flex-shrink: 0;
+}
+
+
+
+.nav-buttons ul{
+      padding: 10px;
+      display: flex;
+      list-style-type: none;
+      justify-content: space-between;     
+}
+
+.left-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-left: 2.5vw;
+}
+
+
+.nav-buttons {
+  margin-left: 6vw;
+  color: #000;
+
+font-size: 1.5rem;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+
+.search-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 1;
+  width: 25vw;
+  height: 8vh;
+  
+  border-top: 1px solid #000;
+  
+  border-right: 1px solid #000;
+  border-bottom: 5px solid #000;
+  border-left: 9px solid #000;
+  margin-right: 2.5vw;
+}
+
+
+
+.search-bar img{
+  margin-left: 1vw;
+width: 2rem;
+height: 2.5rem;
+
+}
+
+
+
+.search-bar p {
+  margin-left: 1.5vw;
+
+}
+
+
+
+.sidenav {
+  height: 80vh;
+  position: fixed;
+  z-index: 1;
+  top: 20vh;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+  padding-top: 20vh;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.books {
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 2.5vw;
 }
 
-.App-link {
-  color: #61dafb;
+.grid {
+  display: flex;                       /* establish flex container */
+  flex-wrap: wrap;                     /* enable flex items to wrap */
+  justify-content: space-around;
+  
+}
+.cell {
+  flex: 0 0 32%;                      /* don't grow, don't shrink, width */
+  width: 50rem;
+  height: 50vh;
+  margin-bottom: 5px;
+  background-color: #fff;
+  border-top: 1px solid #000;
+  
+  border-right: 1px solid #000;
+  border-bottom: 5px solid #000;
+  border-left: 9px solid #000;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.book-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.book-card img{
+  width: 15vw;
+height: 38vh;
+margin-top: 1.5rem;
+margin-bottom: 1.5rem;
+
+}
+
+.book-title{
+  display: flex;
+    align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #000;
+  color: #FFF;
+  font-size: 1.5rem;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+  width: 100%;
+  height: 7vh;
+
 }
