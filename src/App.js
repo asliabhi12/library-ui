@@ -1,52 +1,59 @@
-import './App.css';
-import Home from './pages/Home'
-import {createBrowserRouter, RouterProvider } from "react-router-dom"
-import TopNav from './components/TopNav';
-import AddBooks from './pages/AddBooks';
-import ManageBooks from './pages/ManageBooks';
-import {Provider} from 'react-redux'
-import {store} from './app/store'
-import Todos from './components/Todos';
+import "./App.css";
+import Home from "./pages/Home";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import TopNav from "./components/TopNav";
+import AddBooks from "./pages/AddBooks";
+import ManageBooks from "./pages/ManageBooks";
+import SignIn from "./pages/SignIn";
+// import SideNav from './components/SideNav';
 
-// import SideNav from './components/SideNav'
+import SideNav from "./components/SideNav";
+import BookRequests from "./pages/BookRequests";
 
-import AddTodo from './components/AddTodo';
+const Layout = () => {
+  return (
+    <>
+      <TopNav />
+      <SideNav />
+      <Outlet/>
+    </>
+  );
+};
 
 const router = createBrowserRouter([
+  {path: "/",
+element: <Layout/>,
+children: [
   {
     path: "/",
-    element: <Home/>
-  }
-  // }, 
-  // {
-  //   path: "/register",
-  //   element: <Register/>
-  // },
-  // ,{
-  //   path: "/login",
-  //   element: <AddTodo/>,
-  // }
-  ,{
+    element: <Home />,
+  },
+  {
+    path: "/login",
+    element: <SignIn />,
+  },
+  {
     path: "/manage-books",
-    element: <ManageBooks/>
-  }
-  , {
+    element: <ManageBooks />,
+  },
+  {
     path: "/add-book",
-    element: <AddBooks/>
+    element: <AddBooks />,
+  },
+  {
+    path: "/book-requests",
+    element: <BookRequests />,
   }
-])
+]
+}
+  
+]);
 
 function App() {
   return (
-    <div className="App" >
-      <Provider store={store}>
-      <TopNav/>
-      <AddTodo/>
-      {/* <SideNav/> */}
+    <div className="App">
       {/* <Home /> */}
-      <Todos/>
-      <RouterProvider router={router}/>
-      </Provider>
+      <RouterProvider router={router} />
     </div>
   );
 }

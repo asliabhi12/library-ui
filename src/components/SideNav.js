@@ -1,31 +1,39 @@
-// import { useState } from "react";
+import { useState} from "react";
+import { Link } from "react-router-dom";
 
-// function SideNav(){
-//     {
-//         const [close, setClose] = useState(false);
-//         if (close)  { return(
-//             <div id="mySidenav" class="sidenav" style={{width:0}} >
-//             <a href="javascript:void(0)" class="closebtn" onclick={()=>setClose(true)}>&times;</a>
-//             <a href="#">Home</a>
-//             <a href="#">Manage Books</a>
-//             <a href="#">Books Requested</a>
-//             <a href="#">Settings</a>
-//           </div>
-//         )}
-//         else{
-//             return  (
-//                 <div id="mySidenav" class="sidenav"  >
-//             <a href="javascript:void(0)" class="closebtn" onclick={()=>setClose(true)}>&times;</a>
-//             <a href="#">Home</a>
-//             <a href="#">Manage Books</a>
-//             <a href="#">Books Requested</a>
-//             <a href="#">Settings</a>
-//           </div>
-//             )
+function SideNav() {
+  const [isClosed, setClosed] = useState(true);
 
-//         }
-//       }
+  const handleTrigger = () => setClosed(!isClosed);
 
-// }
+  return (
+    <>
+      <i
+        style={{ fontSize: "30px", cursor: "pointer" }}
+        className="sidenav-ham"
+        id="ham-burger"
+        onClick={handleTrigger}
+      >
+        &#9776;
+      </i>
 
-// export default SideNav
+      <div id="mySidenav" class={`sidenav ${isClosed ? "sidebar--open":"sidebar--closed"}`}>
+        <i style={{color: "#ffff"}}
+          class="closebtn"
+          onClick={handleTrigger}
+        >
+          &times;
+        </i>
+        <ul>
+            <li>
+          <Link to="/">Home</Link> </li>
+        <Link to="/manage-books">Manage Books</Link>
+        <Link to="/">Books Requested</Link>
+        <Link to="/login">Settings</Link>
+        </ul>
+      </div>
+    </>
+  );
+}
+
+export default SideNav;

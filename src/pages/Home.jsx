@@ -2,7 +2,7 @@
 function Home() {
   return (
     <div id="main">
-            <span style={{fontSize:"30px",cursor:"pointer"}} id="ham-burger" onclick="openNav()">&#9776;</span>
+            
             <div class="books">
                 <div class="grid">
                     <div class="cell">
