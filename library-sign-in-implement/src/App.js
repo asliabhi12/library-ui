@@ -4,7 +4,13 @@ import {createBrowserRouter, RouterProvider } from "react-router-dom"
 import TopNav from './components/TopNav';
 import AddBooks from './pages/AddBooks';
 import ManageBooks from './pages/ManageBooks';
+import {Provider} from 'react-redux'
+import {store} from './app/store'
+import Todos from './components/Todos';
+
 // import SideNav from './components/SideNav'
+
+import AddTodo from './components/AddTodo';
 
 const router = createBrowserRouter([
   {
@@ -16,10 +22,10 @@ const router = createBrowserRouter([
   //   path: "/register",
   //   element: <Register/>
   // },
-  // {
+  // ,{
   //   path: "/login",
-  //   element: <Login/>,
-  // },
+  //   element: <AddTodo/>,
+  // }
   ,{
     path: "/manage-books",
     element: <ManageBooks/>
@@ -33,10 +39,14 @@ const router = createBrowserRouter([
 function App() {
   return (
     <div className="App" >
+      <Provider store={store}>
       <TopNav/>
+      <AddTodo/>
       {/* <SideNav/> */}
       {/* <Home /> */}
+      <Todos/>
       <RouterProvider router={router}/>
+      </Provider>
     </div>
   );
 }
