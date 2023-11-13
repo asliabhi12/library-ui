@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav id="top-nav">
+      <div class="left-nav">
+        <div class="logo">
+          <img src="./images/lm-logo.png" alt="" srcset="" />
+        </div>
+        <div class="nav-buttons">
+          <p id="hello-text">Hello Abhishek</p>
+        </div>
+      </div>
+      <div class="right-nav">
+        <div class="search-bar">
+          <img src="./images/search-icon.png" alt="" srcset="" />
+          <p>Search anything</p>
+        </div>
+      </div>
+    </nav>
+    <div class="full-body content">
+      <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+          >&times;</a
+        >
+        <a href="#">Home</a>
+        <a href="./manage.html">Manage Books</a>
+        <a href="">Books Requested</a>
+        <a href="#">Settings</a>
+      </div>
+      <div id="main">
+        <span
+          style="font-size: 30px; cursor: pointer"
+          id="ham-burger"
+          onclick="openNav()"
+          >&#9776;</span
+        >
+        <div class="books">
+          <div class="grid">
+            <div class="cell">
+              <div class="book-card">
+                <img
+                  src="./images/book-covers/1990s-uk-the-body-in-the-library-by-agatha-christie-book-cover-EXPRMN 1.png"
+                  alt=""
+                />
+                <div class="book-title"><span>The Great Gatsby</span></div>
+              </div>
+            </div>
+
+            <div class="cell">
+              <div class="book-card">
+                <img
+                  src="./images/book-covers/1990s-uk-the-body-in-the-library-by-agatha-christie-book-cover-EXPRMN 1.png"
+                  alt=""
+                />
+                <div class="book-title"><span>The Great Gatsby</span></div>
+              </div>
+            </div>
+            <div class="cell">
+              <div class="book-card">
+                <img
+                  src="./images/book-covers/1990s-uk-the-body-in-the-library-by-agatha-christie-book-cover-EXPRMN 1.png"
+                  alt=""
+                />
+                <div class="book-title"><span>The Great Gatsby</span></div>
+              </div>
+            </div>
+            <div class="cell">
+              <div class="book-card">
+                <img
+                  src="./images/book-covers/1990s-uk-the-body-in-the-library-by-agatha-christie-book-cover-EXPRMN 1.png"
+                  alt=""
+                />
+                <div class="book-title"><span>The Great Gatsby</span></div>
+              </div>
+            </div>
+            <div class="cell">
+              <div class="book-card">
+                <img
+                  src="./images/book-covers/1990s-uk-the-body-in-the-library-by-agatha-christie-book-cover-EXPRMN 1.png"
+                  alt=""
+                />
+                <div class="book-title"><span>The Great Gatsby</span></div>
+              </div>
+            </div>
+            <div class="cell">
+              <div class="book-card">
+                <img
+                  src="./images/book-covers/1990s-uk-the-body-in-the-library-by-agatha-christie-book-cover-EXPRMN 1.png"
+                  alt=""
+                />
+                <div class="book-title"><span>The Great Gatsby</span></div>
+              </div>
+            </div>
+            <div class="cell">
+              <div class="book-card">
+                <img
+                  src="./images/book-covers/1990s-uk-the-body-in-the-library-by-agatha-christie-book-cover-EXPRMN 1.png"
+                  alt=""
+                />
+                <div class="book-title"><span>The Great Gatsby</span></div>
+              </div>
+            </div>
+            <div class="cell">
+              <div class="book-card">
+                <img
+                  src="./images/book-covers/1990s-uk-the-body-in-the-library-by-agatha-christie-book-cover-EXPRMN 1.png"
+                  alt=""
+                />
+                <div class="book-title"><span>The Great Gatsby</span></div>
+              </div>
+            </div>
+            <div class="cell">
+              <div class="book-card">
+                <img
+                  src="./images/book-covers/1990s-uk-the-body-in-the-library-by-agatha-christie-book-cover-EXPRMN 1.png"
+                  alt=""
+                />
+                <div class="book-title"><span>The Great Gatsby</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        window.onscroll = function () {
+          myFunction();
+        };
+
+        var navbar = document.getElementById("top-nav");
+        var sticky = navbar.offsetTop;
+
+        function myFunction() {
+          if (window.pageYOffset >= sticky) {
+            navbar.classList.add("sticky");
+          } else {
+            navbar.classList.remove("sticky");
+          }
+        }
+      </script>
+
+      <script>
+        function openNav() {
+          document.getElementById("mySidenav").style.width = "250px";
+          document.getElementById("main").style.marginLeft = "250px";
+          document.getElementById("ham-burger").style.marginLeft = "-50px";
+        }
+
+        function closeNav() {
+          document.getElementById("mySidenav").style.width = "0";
+          document.getElementById("main").style.marginLeft = "0";
+          document.getElementById("ham-burger").style.marginLeft = "50px";
+        }
+      </script>
+    </div>
+  </body>
+</html>
