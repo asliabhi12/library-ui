@@ -18,17 +18,17 @@ function SideNav() {
       </i>
 
       <div id="mySidenav" class={`sidenav ${isClosed ? "sidebar--open":"sidebar--closed"}`}>
-        <i style={{color: "#ffff"}}
+        <span style={{color: "#ffff"}}
           class="closebtn"
           onClick={handleTrigger}
         >
           &times;
-        </i>
+        </span>
         <ul>
             <li>
           <Link to="/">Home</Link> </li>
         <Link to="/manage-books">Manage Books</Link>
-        <Link to="/">Books Requested</Link>
+        <Link to="/book-requests">Books Requested</Link>
         <Link to="/login">Settings</Link>
         </ul>
       </div>

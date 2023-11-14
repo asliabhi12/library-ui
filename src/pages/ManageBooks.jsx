@@ -8,8 +8,8 @@ function ManageBooks() {
                 <div class="manage-block">
                     <div class="manage-left">
                         <div class="manage-icons">
-                            <div class="manage-icon">+</div>
-                            <div class="manage-icon">-</div>
+                            <div class="manage-icon"><img src="./images/pen.png" alt="" srcset="" /></div>
+                            <div class="manage-icon"><img src="./images/trash.png" alt="" srcset="" /></div>
                         </div>
                         <div class="manage-book-title">
                             <p>The Great Gatspby </p>

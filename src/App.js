@@ -1,4 +1,5 @@
 import "./App.css";
+import "./Table.css"
 import Home from "./pages/Home";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import TopNav from "./components/TopNav";
