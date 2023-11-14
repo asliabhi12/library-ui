@@ -7,6 +7,7 @@ import AddBooks from "./pages/AddBooks";
 import ManageBooks from "./pages/ManageBooks";
 import SignIn from "./pages/SignIn";
 // import SideNav from './components/SideNav';
+import SignUp from './pages/SignUp'
 
 import SideNav from "./components/SideNav";
 import BookRequests from "./pages/BookRequests";
@@ -27,11 +28,15 @@ element: <Layout/>,
 children: [
   {
     path: "/",
-    element: <Home />,
+    element: <SignUp />,
+  },
+  {
+    path: "/home",
+    element: <Home/>
   },
   {
     path: "/login",
-    element: <SignIn />,
+    element: <SignUp />,
   },
   {
     path: "/manage-books",
@@ -44,6 +49,10 @@ children: [
   {
     path: "/book-requests",
     element: <BookRequests />,
+  },
+  {
+    path:"/librarian-login",
+    element: <SignIn/>
   }
 ]
 }

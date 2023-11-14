@@ -1,11 +1,12 @@
 import React from "react";
-import {useFormik} from 'formik'
+import { useFormik } from "formik";
+import { Link } from "react-router-dom";
 
 function SignIn() {
   const formik = useFormik({
     initialValues: {
-      username:"",
-      password:""
+      username: "",
+      password: "",
     },
 
     onSubmit: (values) => {
@@ -14,7 +15,6 @@ function SignIn() {
   });
   return (
     <div id="main">
-      
       <div class="add-book-form">
         <div class="sign-in-logo-left">
           <div class="dark-sign-in-logo">
@@ -23,46 +23,49 @@ function SignIn() {
         </div>
         <div class="sign-in-right">
           <div class="text-sign-in">
-            <span>Sign In </span> <span style={{"color": "gray"}}>Sign Up</span>
-          </div>
-          <div class="sign-in-container">
-            <div class="sign-in-text">
-              <p>Please Sign in to Continue</p>
+            <span>Librarian Sign In </span>
+            <div class="sign-in-container">
+              <div class="sign-in-text">
+                <p>Please Sign in to Continue</p>
+              </div>
+              <form onSubmit={formik.handleSubmit}>
+                <div class="form-row">
+                  <div class="input-data">
+                    <input
+                      id="username"
+                      name="username"
+                      onChange={formik.handleChange}
+                      value={formik.values.username}
+                      type="text"
+                      required
+                    />
+                    <div class="underline"></div>
+                    <label for="">Username</label>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="input-data">
+                    <input
+                      id="password"
+                      name="password"
+                      onChange={formik.handleChange}
+                      value={formik.values.password}
+                      type="password"
+                      required
+                    />
+                    <div class="underline"></div>
+                    <label for="">Password</label>
+                  </div>
+                </div>
+                <div class="form-row submit-btn">
+                  <div class="input-data">
+                    <div class="inner"></div>
+                    <input type="submit" value="Sign In" />
+                  </div>
+                </div>
+              </form>
+              <p style={{"fontSize":"16px", "marginTop": "20px"}}>If not Librarian Please <Link to="/login">Click here</Link></p>
             </div>
-            <form onSubmit={formik.handleSubmit}>
-              <div class="form-row">
-                <div class="input-data">
-                  <input 
-                  id="username"
-                    name="username"
-                    onChange={formik.handleChange}
-                    value={formik.values.username}
-                    type="text"
-                    required />
-                  <div class="underline"></div>
-                  <label for="">Username</label>
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="input-data">
-                <input 
-                  id="password"
-                    name="password"
-                    onChange={formik.handleChange}
-                    value={formik.values.password}
-                    type="password"
-                    required />
-                  <div class="underline"></div>
-                  <label for="">Password</label>
-                </div>
-              </div>
-              <div class="form-row submit-btn">
-                <div class="input-data">
-                  <div class="inner"></div>
-                  <input type="submit" value="Sign In" />
-                </div>
-              </div>
-            </form>
           </div>
         </div>
       </div>

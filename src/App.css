@@ -19,7 +19,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 14px solid #000;
+  border-bottom: 14px solid #111;
   background-color: #fff;
   position: fixed;
   top: 0;
@@ -62,7 +62,7 @@ flex-shrink: 0;
 
 .nav-buttons {
   margin-left: 6vw;
-  color: #000;
+  color: #111;
 
 font-size: 1.5rem;
 font-style: normal;
@@ -80,11 +80,11 @@ line-height: normal;
   width: 25vw;
   height: 8vh;
   
-  border-top: 1px solid #000;
+  border-top: 1px solid #111;
   
-  border-right: 1px solid #000;
-  border-bottom: 5px solid #000;
-  border-left: 9px solid #000;
+  border-right: 1px solid #111;
+  border-bottom: 5px solid #111;
+  border-left: 9px solid #111;
   margin-right: 2.5vw;
 }
 
@@ -159,23 +159,35 @@ height: 2.5rem;
 }
 
 .grid {
-  display: flex;                       /* establish flex container */
-  flex-wrap: wrap;                     /* enable flex items to wrap */
-  justify-content: space-around;
-  
+
+display: grid;
+grid-template-columns: auto auto auto auto;
+grid-gap: 100px;
+
 }
-.cell {
-  flex: 0 0 32%;                      /* don't grow, don't shrink, width */
+
+.cell{
+  border-top: 1px solid #111;
+
+border-right: 3px solid #111;
+
+border-bottom: 2px solid #111;
+
+border-left: 1px solid #111;
+  padding: 10px 20px;
+}
+/* .cell {
+             don't grow, don't shrink, width
   width: 50rem;
   height: 50vh;
   margin-bottom: 5px;
   background-color: #fff;
-  border-top: 1px solid #000;
+  border-top: 1px solid #111;
   
-  border-right: 1px solid #000;
-  border-bottom: 5px solid #000;
-  border-left: 9px solid #000;
-}
+  border-right: 1px solid #111;
+  border-bottom: 5px solid #111;
+  border-left: 9px solid #111;
+} */
 
 
 .book-card {
@@ -198,7 +210,7 @@ margin-bottom: 1.5rem;
     align-items: center;
   justify-content: center;
   text-align: center;
-  background: #000;
+  background: #111;
   color: #FFF;
   font-size: 1.5rem;
 font-style: normal;
@@ -210,9 +222,11 @@ line-height: normal;
 }
 
 .add-book-form{
-border-right: 1px solid #000;
-border-bottom: 5px solid #000;
-border-left: 9px solid #000;
+border-right: 1px solid #111;
+border-bottom: 5px solid #111;
+border-left: 9px solid #111;
+border-top: 1px solid #111;
+
 margin-left: 10vw;
 margin-right: 10vw;
 height: 70vh;
@@ -285,7 +299,7 @@ font-size: 41px;
 font-weight: 600;
 font-family: 'Poppins', sans-serif;
 
-color: #000;
+color: #111;
 
 }
 .container form{
@@ -370,7 +384,7 @@ height: 100%;
 width: 300%;
 position: absolute;
 left: -100%;
-background-color: #000;
+background-color: #111;
 transition: all 0.4s;
 }
 .submit-btn .input-data:hover .inner{
@@ -378,11 +392,11 @@ left: 0;
 }
 
 .submit-btn {
-background-color: #000;
+background-color: #111;
 }
 .submit-btn .input-data input{
 border: none;
-background-color: #000;
+background-color: #111;
 color: #fff;
 font-size: 17px;
 font-weight: 500;
@@ -435,7 +449,7 @@ height: 282px;
 
 .sign-in-logo-left{
 
-background-color: #000000;
+background-color: #000;
 display: flex;
 align-items: center;
 justify-content: center;
@@ -448,7 +462,7 @@ width: 50%;
 
 .manage-books {
 
-background-color: #000;
+background-color: #111;
 margin-left: 10vw;
 margin-right: 10vw;
 height: 80vh;
@@ -516,6 +530,13 @@ width: 75%;
 
 }
 
+.black-sign{
+  color: black;
+}
+
+.grey-sign {
+  color: grey;
+}
 
 .sign-in-container{
 background: #fff;
@@ -532,7 +553,7 @@ display: flex;
 padding-top: 2.5rem;
 justify-content: flex-start;
 margin-left: 2.5rem;
-color: #000;
+color: #111;
 font-family: Inter;
 font-size: 2rem;
 font-style: normal;
@@ -553,7 +574,7 @@ justify-content: flex-start;
 }
 
 .sign-in-text p{
-color: #000;
+color: #111;
 margin-left: 4rem;
 font-size: 2.5rem;
 font-style: normal;
@@ -591,13 +612,13 @@ width : 250px;
 .table-header {
   display: flex;
   width: 100%;
-  background: #000;
+  background: #111;
   padding: 18px 0;
 }
 .table-row {
   display: flex;
   width: 100%;
-  color: #000;
+  color: #111;
   background-color: #fff;
   padding: 18px 0;
 }

@@ -2,7 +2,7 @@ import { useState} from "react";
 import { Link } from "react-router-dom";
 
 function SideNav() {
-  const [isClosed, setClosed] = useState(true);
+  const [isClosed, setClosed] = useState(false);
 
   const handleTrigger = () => setClosed(!isClosed);
 
