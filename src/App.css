@@ -143,7 +143,7 @@ height: 2.5rem;
 #main {
   transition: margin-left .5s;
   padding: 16px;
-  padding-top: 20vh;
+  padding-top: 25vh;
 }
 
 @media screen and (max-height: 450px) {

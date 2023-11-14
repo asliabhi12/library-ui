@@ -3,7 +3,6 @@ import React from 'react'
 function ManageBooks() {
   return (
     <div id="main">
-            <span style={{fontSize:"30px",cursor:"pointer"}} id="ham-burger" onclick="openNav()">&#9776;</span>
             <div class="manage-books">
                 <div class="manage-block">
                     <div class="manage-left">

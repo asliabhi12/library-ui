@@ -2,7 +2,6 @@
 function Home() {
   return (
     <div id="main">
-            
             <div class="books">
                 <div class="grid">
                     <div class="cell">

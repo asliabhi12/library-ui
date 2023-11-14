@@ -14,13 +14,7 @@ function SignIn() {
   });
   return (
     <div id="main">
-      {/* <span
-        style="font-size:30px;cursor:pointer"
-        id="ham-burger"
-        onclick="openNav()"
-      >
-        &#9776;
-      </span> */}
+      
       <div class="add-book-form">
         <div class="sign-in-logo-left">
           <div class="dark-sign-in-logo">
