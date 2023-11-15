@@ -1,10 +1,11 @@
 import { useFormik } from "formik";
+import axios from 'axios'
 
 function AddBooks() {
   const formik = useFormik({
     initialValues: {
       title: "",
-      ISBN: "",
+      ISBN: 0 ,
       author: "",
       publisher: "",
       version: "",
@@ -12,18 +13,30 @@ function AddBooks() {
     },
 
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      const v = {
+        LibID: 1,
+        title : values.title,
+        ISBN : Number(values.ISBN),
+        author: values.author,
+        publisher: values.publisher,
+        version: values.version,
+        totalNumber: Number(values.totalNumber)
+      }
+      axios({
+        method:'POST',
+        url:'/book/asliabhi12@gmail.com/',
+        data: v,
+      }).then(function(res){
+        console.log(res)
+        alert('successfully added this book!')
+      }).catch(function(res){
+        console.log(res)
+      });
     },
   });
   return (
     <div id="main">
-      <span
-        style={{ "font-size": "30px", cursor: "pointer" }}
-        id="ham-burger"
-        onclick="openNav()"
-      >
-        &#9776;
-      </span>
+      
       <div class="add-book-form">
         <div class="add-book-left">
           <div class="add-book-cover">
@@ -108,7 +121,7 @@ function AddBooks() {
                     name="totalNumber"
                     onChange={formik.handleChange}
                     value={formik.values.totalNumber}
-                    type="text"
+                    type="number"
                     required
                   />
                   <div class="underline"></div>
