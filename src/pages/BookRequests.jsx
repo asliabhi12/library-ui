@@ -4,7 +4,7 @@ function BookRequests() {
   return (
     <div id="main">
       <div class="manage-books">
-        <button >Issue Registry</button>
+        <h2 style={{"color":"white"}}>Issue Registry</h2>
         <div class="table">
           <div class="table-header">
             <div class="header__item">User Id</div>

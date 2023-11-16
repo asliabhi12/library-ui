@@ -32,6 +32,9 @@ function Home() {
                             <div class="book-title">
                                 <span>{book.title}</span>
                             </div>
+                            <div class="book-title" style={{"backgroundColor":"#696969", "marginTop":"1.2rem"}}>
+                                <span >Request</span>
+                            </div>
                         </div>
                     </div>
                     ))}

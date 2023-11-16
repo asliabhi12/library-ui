@@ -1,10 +1,11 @@
 import React from 'react'
 import { useEffect, useState } from "react";
 import axios from 'axios'
+import { useNavigate, Link } from 'react-router-dom';
 
 function ManageBooks() {
     const [books, setBooks] = useState([])
-
+    const navigate = useNavigate()
     useEffect(()=>{
         const fetchData = async() =>{
             try{
@@ -21,13 +22,17 @@ function ManageBooks() {
     console.log(books)
   return (
     <div id="main">
+        <h2 class="main-heading" style={{"marginLeft":"8rem", "marginBottom":"30px"}}>Manage Books</h2>
             <div class="manage-books">
+                
+                <div className="add-book-button"  onClick={()=>navigate("/add-book")} > + ADD Book
+                </div>
             { 
             books.map((book)=>(
                 <div class="manage-block" key={book.isbn}>
                 <div class="manage-left">
                     <div class="manage-icons">
-                        <div class="manage-icon"><img src="./images/pen.png" alt="" srcset="" /></div>
+                        <div class="manage-icon"><Link to={"/update/"+book.title}><img src="./images/pen.png" alt="" srcset="" /></Link></div>
                         <div class="manage-icon"><img src="./images/trash.png" alt="" srcset="" /></div>
                     </div>
                     <div class="manage-book-title">
