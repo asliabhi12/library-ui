@@ -25,7 +25,7 @@ function SignUp() {
         </div>
         <div class="sign-in-right">
           <div class="text-sign-in">
-            <span class = {`${isSignIn ?"black-sign":"grey-sign"}`} onClick={()=>setSignIn(true)}>Sign In </span > <span class = {`${!isSignIn ?"black-sign":"grey-sign"}`} onClick={()=>setSignIn(true)} onClick={()=>setSignIn(false)}>Sign Up</span>
+            <span class = {`${isSignIn ?"black-sign":"grey-sign"}`} onClick={()=>setSignIn(true)}>Sign In </span > <span class = {`${!isSignIn ?"black-sign":"grey-sign"}`} onClick={()=>setSignIn(!isSignIn)}>Sign Up</span>
           </div>
           <div class="sign-in-container">
             <div class="sign-in-text">

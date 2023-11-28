@@ -13,7 +13,7 @@ function UpdateBooks() {
     const fetchData = async () => {
       try {
         const res = await axios.get(`/book/${params.id}`);
-        setBooks(res.data);
+        setBooks(res.data.books);
       } catch (err) {
         console.log(err);
       }
@@ -44,8 +44,8 @@ function UpdateBooks() {
       };
     
       axios({
-        method: "PUT", // Change the method to PUT
-        url: `/book/${values.ISBN}/asliabhi12@gmail.com`, // Use the book's identifier (e.g., ISBN) in the URL
+        method: "PUT", 
+        url: `/book/${values.ISBN}/asliabhi12@gmail.com`, 
         data: updatedBook,
       })
         .then(function (res) {

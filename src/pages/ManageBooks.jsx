@@ -9,8 +9,9 @@ function ManageBooks() {
     useEffect(()=>{
         const fetchData = async() =>{
             try{
-                const res = await axios.get('/book')
-                setBooks(res.data)
+                const res = await axios.get('/books')
+                setBooks(res.data.books)
+
                
             }catch(err){
                 console.log(err)
@@ -32,7 +33,7 @@ function ManageBooks() {
                 <div class="manage-block" key={book.isbn}>
                 <div class="manage-left">
                     <div class="manage-icons">
-                        <div class="manage-icon"><Link to={"/update/"+book.title}><img src="./images/pen.png" alt="" srcset="" /></Link></div>
+                        <div class="manage-icon"><Link to={"/update/"+book.isbn}><img src="./images/pen.png" alt="" srcset="" /></Link></div>
                         <div class="manage-icon"><img src="./images/trash.png" alt="" srcset="" /></div>
                     </div>
                     <div class="manage-book-title">
