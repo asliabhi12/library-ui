@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 function Home() {
-  const [books, setBooks] = useState([]);
+  const [libraries, setLibraries] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("/books");
-        setBooks(res.data.books);
+        const res = await axios.get("/library");
+        setLibraries(res.data.libraries);
       } catch (err) {
         console.log(err);
       }
@@ -20,13 +20,13 @@ function Home() {
     <div id="main">
       <div class="books">
         <div class="grid">
-          {Array.isArray(books) ? (
-            books.map((book) => (
-              <div class="cell" key={book.isbn}>
+          {Array.isArray(libraries) ? (
+            libraries.map((library) => (
+              <div class="cell" key={libraries.id}>
                 <div class="book-card">
                   <img src={`./images/book-covers/2.png`} alt="" />
                   <div class="book-title">
-                    <span>{book.title}</span>
+                    <span>{library.name}</span>
                   </div>
                   <div
                     class="book-title"
@@ -38,7 +38,7 @@ function Home() {
               </div>
             ))
           ) : (
-            <p>No books available</p>
+            alert("you aren't owner")
           )}
         </div>
       </div>

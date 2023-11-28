@@ -20,11 +20,11 @@ function AddBooks() {
         author: values.author,
         publisher: values.publisher,
         version: values.version,
-        totalNumber: Number(values.totalNumber)
+        totalCopies: Number(values.totalNumber)
       }
       axios({
         method:'POST',
-        url:'/book/asliabhi12@gmail.com/',
+        url:'/book',
         data: v,
       }).then(function(res){
         console.log(res)

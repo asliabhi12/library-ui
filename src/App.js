@@ -5,13 +5,14 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import TopNav from "./components/TopNav";
 import AddBooks from "./pages/AddBooks";
 import ManageBooks from "./pages/ManageBooks";
-import SignIn from "./pages/SignIn";
+import SignUp from "./pages/Signup";
 // import SideNav from './components/SideNav';
-import SignUp from './pages/SignUp'
+import Login from './pages/Login'
 import Update from './pages/Update'
-
+import CreateLibrary from "./pages/CreateLibrary";
 import SideNav from "./components/SideNav";
 import BookRequests from "./pages/BookRequests";
+import Libraries from './pages/Libraries'
 
 const Layout = () => {
   return (
@@ -45,15 +46,23 @@ children: [
   },
   {
     path:"/login",
-    element: <SignUp/>
+    element: <Login/>
   },
   {
-    path:"/librarian-login",
-    element: <SignIn/>
+    path:"/signup",
+    element: <SignUp/>
   },
   {
     path:"/update/:id",
     element:<Update/>
+  },
+  {
+    path:'/create-library',
+    element: <CreateLibrary/>
+  },
+  {
+    path:"/libraries",
+    element: <Libraries/>
   }
 ]
 }
