@@ -19,7 +19,7 @@ function SignIn() {
     onSubmit: (values) => {
       axios.post("/signup", values).then(function(response){
         alert("posted successfully:", response)
-        navigate("/")
+        navigate("/loginresponse.data.user.role")
       }).catch(function (err){
         alert(err)
       })
@@ -96,6 +96,7 @@ function SignIn() {
                   <input type="submit" value="Add Book" />
                 </div>
               </div>
+              <p>If already a user please <Link to="/login">Log in</Link></p>
             </form>
           </div>
         </div>

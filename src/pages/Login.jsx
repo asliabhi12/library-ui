@@ -16,10 +16,14 @@ function SignIn() {
 
     onSubmit: (values) => {
       axios.post("/login", values).then(function (response) {
-        alert("Login Successful: ", response)
+        alert("Login Successful: ", response.data.message)
         console.log(response)
-        localStorage.setItem("role", response.data.data)
-        navigate("/create-library")
+        localStorage.setItem("role", response.data.user.role)
+        localStorage.setItem("contactNumber",response.data.user.contactNumber)
+        localStorage.setItem("email", response.data.user.email)
+        localStorage.setItem("name", response.data.user.name)
+        localStorage.setItem("libId", response.data.user.libId)
+        navigate("/")
       }).catch(function (err) {
         alert(err)
       })
@@ -27,8 +31,9 @@ function SignIn() {
   });
   return (
     <div id="main">
-      {
-        localStorage.getItem("role")=="owner"?(<div class="add-book-form">
+      
+
+      <div class="add-book-form">
         <div class="sign-in-logo-left">
           <div class="dark-sign-in-logo">
             <img src="./images/lm-logo-dark.png" alt="" srcset="" />
@@ -75,13 +80,12 @@ function SignIn() {
                   <input type="submit" value="Add Book" />
                 </div>
               </div>
+              <p>If a new user please <Link to="/signup">Register</Link></p>
             </form>
+            
           </div>
         </div>
-      </div>):<p>You aren't owner</p>
-      }
-
-      
+      </div>
     </div>
   );
 }

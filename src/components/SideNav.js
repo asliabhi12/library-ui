@@ -25,9 +25,11 @@ function SideNav() {
         >
           &times;
         </span>
-        <ul>
-            <li>
-          <Link to="/" onClick={()=>setClosed(false)}>Home</Link> </li>
+          
+              <ul>
+              <li>
+              <Link to="/" onClick={()=>setClosed(false)}>Home</Link> </li>)
+          
         <Link to="/manage-books" onClick={()=>setClosed(false)}>Manage Books</Link>
         <Link to="/book-requests" onClick={()=>setClosed(false)}>Books Requested</Link>
         <Link to="/login" onClick={()=>setClosed(false)}>Login/Sign Up</Link>
