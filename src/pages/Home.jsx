@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useContext } from "react";
+import { useContext} from "react";
+import { AuthContext } from "../context/authContext";
 
 function Home() {
   const { currentUser } = useContext(AuthContext);
@@ -43,7 +44,6 @@ function Home() {
             <p>No books available</p>
           )}
         </div>
-        <p>{currentUser.name}</p>
       </div>
     </div>
   );

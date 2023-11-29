@@ -5,36 +5,42 @@ export const AuthContext = createContext();
 
 export const AuthContexProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState({
-    name: JSON.parse(localStorage.getItem("name")) || null,
-    role: JSON.parse(localStorage.getItem("name")) || null,
-    email: JSON.parse(localStorage.getItem("name")) || null,
-    contactNumber: JSON.parse(localStorage.getItem("name")) || null,
-    libId:  JSON.parse(localStorage.getItem("name")) || null,
+    name: localStorage.getItem("name") || null,
+    role: localStorage.getItem("role") || null,
+    email: localStorage.getItem("email") || null,
+    contactNumber: localStorage.getItem("contactNumber") || null,
+    libId:  localStorage.getItem("libId") || null,
 }
   );
 
-  const login = async (inputs) => {
-    const response = await axios.post("/auth/login", inputs);
+  const login = async (values) => {
+    const response = await axios.post("/login", values);
     setCurrentUser({
-        name: JSON.parse(localStorage.getItem("name")) || null,
-    role: JSON.parse(localStorage.getItem("name")) || null,
-    email: JSON.parse(localStorage.getItem("name")) || null,
-    contactNumber: JSON.parse(localStorage.getItem("name")) || null,
-    libId:  JSON.parse(localStorage.getItem("name")) || null,
+        name: response.data.user.name || null,
+    role: response.data.user.role || null,
+    email: response.data.user.email || null,
+    contactNumber: response.data.user.contactNumber || null,
+    libId:  response.data.user.libId || null,
     });
   };
 
-  const logout = async (inputs) => {
-    await axios.post("/auth/logout");
-    setCurrentUser(null);
+  const logout = async () => {
+    await axios.post("/logout");
+
+      localStorage.removeItem("libId")
+      localStorage.removeItem("role")
+      localStorage.removeItem("contactNumber")
+      localStorage.removeItem("email")
+      localStorage.removeItem("name")
+
   };
 
   useEffect(() => {
-    localStorage.setItem("role", response.data.user.role)
-        localStorage.setItem("contactNumber",response.data.user.contactNumber)
-        localStorage.setItem("email", response.data.user.email)
-        localStorage.setItem("name", response.data.user.name)
-        localStorage.setItem("libId", response.data.user.libId)
+    localStorage.setItem("role", currentUser.role)
+        localStorage.setItem("contactNumber",currentUser.contactNumber)
+        localStorage.setItem("email", currentUser.email)
+        localStorage.setItem("name", currentUser.name)
+        localStorage.setItem("libId", currentUser.libId)
   }, [currentUser]);
 
   return (

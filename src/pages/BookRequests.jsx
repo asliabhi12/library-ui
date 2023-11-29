@@ -9,19 +9,33 @@ function BookRequests() {
     const fetchData = async () => {
       try {
         const res = await axios.get("/requests");
-        console.log(res.data.request);
+        
         setRequests(Array.isArray(res.data.request) ? res.data.request : []);
       } catch (err) {
+        
         console.log(err);
       }
     };
 
     fetchData();
   }, []);
+
+  const approveRequest = async (reqId) => {
+    try {
+      const res = await axios.post("/approve-request", { "reqId": reqId })
+      alert(res.data.message)
+        console.log(res.data.request);
+    } catch (err) {
+      alert(err.message)
+      console.log(err);
+    }
+  }
+
+
   return (
     <div id="main">
       <div class="manage-books">
-        <h2 style={{ color: "white" }}>Issue Registry</h2>
+        <h2 style={{ color: "white" }}>Book Requests</h2>
         <div class="table">
           <div class="table-header">
             <div class="header__item">User Id</div>
@@ -42,7 +56,7 @@ function BookRequests() {
                 <div class="table-data">
                   <div class="manage-request-icons">
                     <div>
-                      <img src="./images/right-check.png" alt="" srcset="" />
+                      <img onClick={() => approveRequest(request.reqId)} src="./images/right-check.png" alt="" srcset="" />
                     </div>
                     <div>
                       <img src="./images/wrong-cross.png" alt="" srcset="" />

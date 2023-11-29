@@ -10,30 +10,31 @@ function SignIn() {
     initialValues: {
       name: "",
       password: "",
-      email:"",
+      email: "",
       contactNumber: "",
       role: "reader",
-      libId:1
+      libId: 1,
+      role: ""
     },
 
     onSubmit: (values) => {
-      axios.post("/signup", values).then(function(response){
+      axios.post("/signup", values).then(function (response) {
         alert("posted successfully:", response)
-        navigate("/loginresponse.data.user.role")
-      }).catch(function (err){
+        navigate("/login")
+      }).catch(function (err) {
         alert(err)
       })
     },
   });
   return (
     <div id="main">
-      
+
       <div class="add-book-form">
-      <div class="sign-in-logo-left">
-      <div class="dark-sign-in-logo">
+        <div class="sign-in-logo-left">
+          <div class="dark-sign-in-logo">
             <img src="./images/lm-logo-dark.png" alt="" srcset="" />
           </div>
-          </div>
+        </div>
         <div class="add-book-right">
           <div class="container">
             <div class="text">Sign Up</div>
@@ -89,6 +90,23 @@ function SignIn() {
                   <div class="underline"></div>
                   <label for="">Password</label>
                 </div>
+              </div>
+              <div class="input-data">
+                <p>Role</p>
+                <select
+                  id="role"
+                  name="role"
+                  onChange={formik.handleChange}
+                  value={formik.values.role}
+                  type="text"
+                  required
+                  style={{ "width": "600px", "height": "30px" }}>
+
+                  <option value="" label="select role">Select Role:</option>
+                  <option value="admin" label="admin">Admin</option>
+                  <option value="owner" label="owner">Owner</option>
+                  <option value="reader" label="reader">Reader</option>
+                </select>
               </div>
               <div class="form-row submit-btn">
                 <div class="input-data" id="add-book-btn">

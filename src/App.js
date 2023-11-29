@@ -13,6 +13,7 @@ import CreateLibrary from "./pages/CreateLibrary";
 import SideNav from "./components/SideNav";
 import BookRequests from "./pages/BookRequests";
 import Libraries from './pages/Libraries'
+import IssueRegistry from './pages/IssueRegistry'
 
 const Layout = () => {
   return (
@@ -23,6 +24,7 @@ const Layout = () => {
     </>
   );
 };
+
 
 const router = createBrowserRouter([
   {path: "/",
@@ -43,6 +45,10 @@ children: [
   {
     path: "/book-requests",
     element: <BookRequests />,
+  },
+  {
+    path: "/issue-registry",
+    element: <IssueRegistry/>
   },
   {
     path:"/login",

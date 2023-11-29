@@ -1,0 +1,1 @@
+{issue.issueStatus==="issued"?style={{"color":"green"}}:style={{"color":"red"}}}

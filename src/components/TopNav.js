@@ -1,5 +1,9 @@
-function TopNav() {
+import { useContext} from "react";
+import { AuthContext } from "../context/authContext";
 
+
+function TopNav() {
+    const { currentUser } = useContext(AuthContext);
   return (
     
     <nav id = "top-nav" >
@@ -8,7 +12,7 @@ function TopNav() {
                 <img src="./images/lm-logo.png" alt="" srcset="" />
             </div>
             <div class="nav-buttons">
-                <p id="hello-text">Hello {localStorage?.getItem("name")}</p>
+                <p id="hello-text">Hello {currentUser.name}</p>
             </div>
         </div>
         <div class="right-nav">
