@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState} from "react";
 import { Link } from "react-router-dom";
 
@@ -5,6 +6,21 @@ function SideNav() {
   const [isClosed, setClosed] = useState(false);
 
   const handleTrigger = () => setClosed(!isClosed);
+
+  const logout = () => {
+    
+    axios.post("/logout").then(function(response){
+      alert("user logged out successfully", response)
+      setClosed(false)
+      localStorage.removeItem("libId")
+      localStorage.removeItem("role")
+      localStorage.removeItem("contactNumber")
+      localStorage.removeItem("email")
+      localStorage.removeItem("name")
+    }).catch(function(err){
+      alert(err)
+    })
+  }
 
   return (
     <>
@@ -33,6 +49,8 @@ function SideNav() {
         <Link to="/manage-books" onClick={()=>setClosed(false)}>Manage Books</Link>
         <Link to="/book-requests" onClick={()=>setClosed(false)}>Books Requested</Link>
         <Link to="/login" onClick={()=>setClosed(false)}>Login/Sign Up</Link>
+        <Link to="/" onClick={logout}>Log Out</Link>
+
         </ul>
       </div>
     </>

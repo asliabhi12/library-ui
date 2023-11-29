@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useContext } from "react";
 
 function Home() {
+  const { currentUser } = useContext(AuthContext);
   const [books, setBooks] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -41,6 +43,7 @@ function Home() {
             <p>No books available</p>
           )}
         </div>
+        <p>{currentUser.name}</p>
       </div>
     </div>
   );

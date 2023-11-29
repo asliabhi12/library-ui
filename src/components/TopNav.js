@@ -8,7 +8,7 @@ function TopNav() {
                 <img src="./images/lm-logo.png" alt="" srcset="" />
             </div>
             <div class="nav-buttons">
-                <p id="hello-text">Hello {localStorage.getItem("name")}</p>
+                <p id="hello-text">Hello {localStorage?.getItem("name")}</p>
             </div>
         </div>
         <div class="right-nav">
