@@ -15,7 +15,7 @@ body {
 
   overflow: hidden;
 
-  min-height: 20vh;
+  min-height: 15vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -78,10 +78,8 @@ line-height: normal;
   justify-content: flex-start;
   flex-shrink: 1;
   width: 25vw;
-  height: 8vh;
-  
+  height: 6vh;
   border-top: 1px solid #111;
-  
   border-right: 1px solid #111;
   border-bottom: 5px solid #111;
   border-left: 9px solid #111;
@@ -107,11 +105,11 @@ height: 2.5rem;
 
 
 .sidenav {
-  padding-top: 20vh;
-  height: 80vh;
+  padding-top: 8vh;
+  height: 85vh;
   position: fixed;
   z-index: 1;
-  top: 20vh;
+  top: 15vh;
   left: 0;
   background-color: #111;
   overflow-x: hidden;
@@ -143,7 +141,7 @@ height: 2.5rem;
 #main {
   transition: margin-left .5s;
   padding: 16px;
-  padding-top: 25vh;
+  padding-top: 20vh;
 }
 
 @media screen and (max-height: 450px) {
@@ -231,8 +229,12 @@ margin-left: 10vw;
 margin-right: 10vw;
 height: 70vh;
 display: flex;
+border-radius: 15px;
 }
 
+.add-book-form::-webkit-scrollbar {
+  display: none;
+}
 .add-book-left{
 background-color: #111;
 display: flex;
@@ -477,15 +479,18 @@ flex-direction: column;
 padding: 1.5em;
 gap: 1.5em;
 overflow-y: scroll;
+border-radius: 15px;
 }
-
+.manage-books::-webkit-scrollbar {
+  display: none;
+}
 
 .manage-block{
 background-color: #FFF;
 width: 80%;
 height: 7.25rem;
 flex-shrink: 0;
-
+border-radius: 15px;
 }
 
 .add-book-button{
@@ -494,7 +499,8 @@ justify-content: center;
 align-items: center;
  width: 30%;
  height: 3rem;
-background-color: #eee;
+ border-radius: 8px;
+ background-color: #F4CE14;
 }
 .manage-block
 {

@@ -111,7 +111,7 @@ function SignIn() {
               <div class="form-row submit-btn">
                 <div class="input-data" id="add-book-btn">
                   <div class="inner"></div>
-                  <input type="submit" value="Add Book" />
+                  <input type="submit" value="Sign Up" />
                 </div>
               </div>
               <p>If already a user please <Link to="/login">Log in</Link></p>
