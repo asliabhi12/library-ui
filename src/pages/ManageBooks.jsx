@@ -6,6 +6,18 @@ import { useNavigate, Link } from 'react-router-dom';
 function ManageBooks() {
     const [books, setBooks] = useState([])
     const navigate = useNavigate()
+
+    const handleDelete = (isbn) => {
+        // Send DELETE request to "/book" with ISBN in the request body
+        axios.delete('/book',  { "isbn": isbn })
+          .then(response => {
+            alert("Book deleted successfully");
+          })
+          .catch(error => {
+            alert("Error occurred", error);
+          });
+      };
+
     useEffect(()=>{
         const fetchData = async() =>{
             try{
@@ -20,13 +32,14 @@ function ManageBooks() {
         fetchData()
     }, [])
 
-    console.log(books)
+ 
+
   return (
     <div id="main">
         <h2 class="main-heading" style={{"marginLeft":"8rem", "marginBottom":"30px"}}>Manage Books</h2>
             <div class="manage-books">
                 
-                <div className="add-book-button"  onClick={()=>navigate("/add-book")} > + ADD Book
+                <div className="add-book-button" style={{"cursor":"pointer"}} onClick={()=>navigate("/add-book")} > + ADD Book
                 </div>
             { 
             books.map((book)=>(
@@ -34,7 +47,7 @@ function ManageBooks() {
                 <div class="manage-left">
                     <div class="manage-icons">
                         <div class="manage-icon"><Link to={"/update/"+book.isbn}><img src="./images/pen.png" alt="" srcset="" /></Link></div>
-                        <div class="manage-icon"><img src="./images/trash.png" alt="" srcset="" /></div>
+                        <div class="manage-icon" style={{"cursor":"pointer"}}><img src="./images/trash.png" onClick={() => handleDelete(book.isbn)} alt="" srcset="" /></div>
                     </div>
                     <div class="manage-book-title">
                         <p>{book.title}</p>

@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useContext } from "react";
+import { AuthContext } from "../context/authContext";
+import "./libraries.css";
 
 function Home() {
+  const { currentUser } = useContext(AuthContext);
   const [libraries, setLibraries] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -21,24 +25,24 @@ function Home() {
       <div class="books">
         <div class="grid">
           {Array.isArray(libraries) ? (
-            libraries.map((library) => (
-              <div class="cell" key={libraries.id}>
-                <div class="book-card">
-                  <img src={`./images/book-covers/2.png`} alt="" />
-                  <div class="book-title">
-                    <span>{library.name}</span>
-                  </div>
-                  <div
-                    class="book-title"
-                    style={{ backgroundColor: "#696969", marginTop: "1.2rem" }}
-                  >
-                    <span>Request</span>
+            <div className="library-list">
+              {libraries.map((library) => (
+                <div className="library-item" key={library.id}>
+                  <div className="library-card">
+                    <div className="library-title">
+                      <span>{library.name}</span>
+                    </div>
+                    {currentUser.role === "owner" && (
+                      <div className="library-action">
+                        <span>Delete</span>
+                      </div>
+                    )}
                   </div>
                 </div>
-              </div>
-            ))
+              ))}
+            </div>
           ) : (
-            alert("you aren't owner")
+            <p>You aren't the owner</p>
           )}
         </div>
       </div>

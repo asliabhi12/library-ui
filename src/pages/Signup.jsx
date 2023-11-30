@@ -17,9 +17,29 @@ function SignIn() {
       role: ""
     },
 
+    validate: (values) => {
+      const errors = {};
+
+      // Validate email
+      if (!values.email) {
+        errors.email = "Required";
+      } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+        errors.email = "Invalid email address";
+      }
+
+      // Validate password
+      if (!values.password) {
+        errors.password = "Required";
+      } else if (values.password.length < 6) {
+        errors.password = "Password must be at least 6 characters";
+      }
+
+      return errors;
+    },
+
     onSubmit: (values) => {
       axios.post("/signup", values).then(function (response) {
-        alert("posted successfully:", response)
+        alert("Sign Up Successful:")
         navigate("/login")
       }).catch(function (err) {
         alert(err)
@@ -63,6 +83,9 @@ function SignIn() {
                   />
                   <div class="underline"></div>
                   <label for="">Email</label>
+                  {formik.touched.email && formik.errors.email ? (
+                    <div className="error-message">{formik.errors.email}</div>
+                  ) : null}
                 </div>
               </div>
               <div class="form-row">
@@ -89,6 +112,9 @@ function SignIn() {
                   />
                   <div class="underline"></div>
                   <label for="">Password</label>
+                  {formik.touched.password && formik.errors.password ? (
+                    <div className="error-message">{formik.errors.password}</div>
+                  ) : null}
                 </div>
               </div>
               <div class="input-data">

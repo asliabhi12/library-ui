@@ -70,6 +70,11 @@ font-weight: 400;
 line-height: normal;
 }
 
+.search-bar-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .search-bar {
   display: flex;
@@ -78,7 +83,7 @@ line-height: normal;
   justify-content: flex-start;
   flex-shrink: 1;
   width: 25vw;
-  height: 6vh;
+  height: 8vh;
   border-top: 1px solid #111;
   border-right: 1px solid #111;
   border-bottom: 5px solid #111;

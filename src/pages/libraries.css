@@ -1,0 +1,38 @@
+.library-list {
+    display: flex;
+    justify-content: space-between; /* Adjust as needed */
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+  }
+  
+  .library-item {
+    width: calc(33.33% - 20px); /* Adjust the width and margin as needed */
+    margin: 10px;
+  }
+  
+  .library-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px; /* Increased padding for bigger cards */
+    height: 200px; /* Adjust the height as needed */
+    width: 300px; /* Adjust the width as needed */
+    box-sizing: border-box; /* Include padding and border in the total width and height */
+  }
+  
+  .library-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .library-action {
+    background-color: #696969;
+    margin-top: 1.2rem;
+    padding: 10px; /* Adjust padding for bigger action */
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .library-action:hover {
+    background-color: #555;
+  }

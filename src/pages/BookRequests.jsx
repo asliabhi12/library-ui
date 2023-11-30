@@ -55,10 +55,10 @@ function BookRequests() {
                 <div class="table-data">{request.requestDate || "nA"}</div>
                 <div class="table-data">
                   <div class="manage-request-icons">
-                    <div>
+                    <div style={{"cursor":"pointer"}}>
                       <img onClick={() => approveRequest(request.reqId)} src="./images/right-check.png" alt="" srcset="" />
                     </div>
-                    <div>
+                    <div style={{"cursor":"pointer"}}>
                       <img src="./images/wrong-cross.png" alt="" srcset="" />
                     </div>
                   </div>
