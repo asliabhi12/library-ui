@@ -663,3 +663,27 @@ width : 250px;
   justify-content: space-evenly;
 
 }
+
+
+.request-book-left{
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width:40%;
+  padding: 10px 0px;
+}
+
+.request-block{
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  width: 85%;
+  height: 5vh;
+  background-color: #eee;
+}
+
+.req-status{
+color:  	#303030;
+}

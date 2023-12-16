@@ -9,7 +9,7 @@ function BookRequests() {
     const fetchData = async () => {
       try {
         const res = await axios.get("/requests");
-        
+        console.log(res.data.request)
         setRequests(Array.isArray(res.data.request) ? res.data.request : []);
       } catch (err) {
         
@@ -20,11 +20,11 @@ function BookRequests() {
     fetchData();
   }, []);
 
-  const approveRequest = async (reqId) => {
+  const approveRequest = async (req_Id) => {
     try {
-      const res = await axios.post("/approve-request", { "reqId": reqId })
+      const res = await axios.post("/approve-request", { "req_Id":req_Id })
       alert(res.data.message)
-        console.log(res.data.request);
+        
     } catch (err) {
       alert(err.message)
       console.log(err);
@@ -46,17 +46,18 @@ function BookRequests() {
             <div class="header__item">Approve/Deny</div>
           </div>
           <div class="table-content">
-            {requests.map((request) => (
-              <div class="table-row" key={request.reqId}>
+            {requests.filter(request => request.requestType === "pending")
+            .map((request) => (
+              <div class="table-row" key={request.req_Id}>
                 <div class="table-data">{request.readerId}</div>
-                <div class="table-data">{request.reqId}</div>
+                <div class="table-data">{request.req_Id}</div>
                 <div class="table-data">Tom</div>
                 <div class="table-data">{request.bookId}</div>
                 <div class="table-data">{request.requestDate || "nA"}</div>
                 <div class="table-data">
                   <div class="manage-request-icons">
                     <div style={{"cursor":"pointer"}}>
-                      <img onClick={() => approveRequest(request.reqId)} src="./images/right-check.png" alt="" srcset="" />
+                      <img onClick={() => approveRequest(request.req_Id)} src="./images/right-check.png" alt="" srcset="" />
                     </div>
                     <div style={{"cursor":"pointer"}}>
                       <img src="./images/wrong-cross.png" alt="" srcset="" />

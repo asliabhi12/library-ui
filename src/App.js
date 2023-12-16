@@ -14,6 +14,7 @@ import SideNav from "./components/SideNav";
 import BookRequests from "./pages/BookRequests";
 import Libraries from './pages/Libraries'
 import IssueRegistry from './pages/IssueRegistry'
+import RequestBook from "./pages/RequestBook";
 
 const Layout = () => {
   return (
@@ -34,6 +35,11 @@ children: [
     path: "/",
     element: <Home/>
   },
+  {
+    path:"/request-book",
+    element: <RequestBook/>
+  },
+
   {
     path: "/manage-books",
     element: <ManageBooks />,

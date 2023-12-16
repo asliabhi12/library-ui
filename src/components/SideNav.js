@@ -72,7 +72,7 @@ const navigate = useNavigate()
         {currentUser?.role === "reader" &&
           <ul>
             <Link to="/" onClick={() => setClosed(false)}>Home</Link>
-            <Link to="/" onClick={() => setClosed(false)}>Requested Books</Link>
+            <Link to="/request-book" onClick={() => setClosed(false)}>Requested Books</Link>
           </ul>
         }
         {currentUser?.name ? <Link to="/" onClick={logout}>Log Out</Link> : <Link to="/login" onClick={() => setClosed(false)}>Login/Sign Up</Link>}

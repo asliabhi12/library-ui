@@ -85,11 +85,11 @@ function Home() {
               .map((book) => (
                 <div className="cell" key={book.isbn}>
                   <div className="book-card">
-                    <img src={`./images/book-covers/2.png`} alt="" />
+                  <img src={`./images/book-covers/${Math.floor(Math.random() * 8) + 1}.png`} alt="" />
                     <div className="book-title">
                       <span>{book.title}</span>
                     </div>
-                    {currentUser.role === "reader" && (
+                    {/* {currentUser.role === "reader" && (
                       <div
                         className="book-title"
                         style={{
@@ -99,7 +99,7 @@ function Home() {
                       >
                         <span>Request</span>
                       </div>
-                    )}
+                    )} */}
                   </div>
                 </div>
               ))

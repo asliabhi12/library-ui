@@ -9,7 +9,7 @@ function ManageBooks() {
 
     const handleDelete = (isbn) => {
         // Send DELETE request to "/book" with ISBN in the request body
-        axios.delete('/book',  { "isbn": isbn })
+        axios.delete(`/book/${isbn}`)
           .then(response => {
             alert("Book deleted successfully");
           })
@@ -60,12 +60,7 @@ function ManageBooks() {
 
             ))}
                 
-                {/* <div class="manage-block"></div>
-                <div class="manage-block"></div>
-                <div class="manage-block"></div>
-                <div class="manage-block"></div>
-                <div class="manage-block"></div>
-                <div class="manage-block"></div>   */}
+              
         </div>
         <span>Lib Id: 4564786</span>
     </div>
