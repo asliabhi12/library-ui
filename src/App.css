@@ -679,7 +679,9 @@ width : 250px;
   display: flex;
   justify-content: space-between;
   padding: 8px;
-  width: 85%;
+  width: 90%;
+  border-radius: 5px;
+  margin-top: 5px;
   height: 5vh;
   background-color: #eee;
 }
