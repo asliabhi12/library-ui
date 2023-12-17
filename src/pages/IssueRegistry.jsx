@@ -42,7 +42,7 @@ function BookRequests() {
                 <div class="table-data">{issue.isbn}</div>
                 <div class="table-data">{issue.readerId}</div>
                 <div class="table-data">{issue.issueApproverId}</div>
-                <div class="table-data" style={issue.issueStatus==="issued"?{"color":"green"}:{"color":"green"}} >{issue.issueStatus}</div>
+                <div class="table-data" style={issue.issueStatus==="Issued"?{"color":"green"}:{"color":"red"}} >{issue.issueStatus}</div>
                 <div class="table-data">{issue.issueDate || "nA"}</div>
                 <div class="table-data">{issue.expectedReturnDate || "nA"}</div>
                 <div class="table-data">{issue.returnDate || "nA"}</div>

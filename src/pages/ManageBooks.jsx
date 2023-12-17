@@ -13,7 +13,7 @@ function ManageBooks() {
       .delete(`/book/${isbn}`)
       .then((response) => {
         alert("Book deleted successfully");
-        var newList = books.filter((books) => books.isbn != isbn);
+        var newList = books.filter((books) => books.isbn !== isbn);
         setBooks(newList);
       })
       .catch((error) => {

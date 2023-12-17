@@ -24,7 +24,7 @@ function BookRequests() {
     try {
       const res = await axios.post("/approve-request", { "req_Id":req_Id })
       alert(res.data.message)
-      var newList = requests.filter(request=> request.req_Id != req_Id)
+      var newList = requests.filter(request=> request.req_Id !== req_Id)
       setRequests(newList) 
         
     } catch (err) {
@@ -37,7 +37,7 @@ function BookRequests() {
     try {
       const res = await axios.post("/deny-request", { "req_Id":req_Id })
       alert(res.data.message)
-      var newList = requests.filter(request=> request.req_Id != req_Id)
+      var newList = requests.filter(request=> request.req_Id !== req_Id)
       setRequests(newList) 
         
     } catch (err) {

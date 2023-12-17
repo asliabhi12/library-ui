@@ -1,17 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useFormik } from "formik";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
 import { AuthContext } from "../context/authContext";
 import { useContext } from "react";
 import axios from "axios";
 
 function RequestBook() {
-  const navigate = useNavigate();
   const { currentUser } = useContext(AuthContext);
   const [requests, setRequests] = useState([]);
   const [message, setMessage] = useState("");
-  const [books, setBooks] = useState([]);
   const getStatusColor = (requestType) => {
     switch (requestType) {
       case "issued":
