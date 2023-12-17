@@ -16,19 +16,19 @@ function RequestBook() {
     switch (requestType) {
       case "issued":
         return "green";
-      case "denied":
+      case "rejected":
         return "red";
       case "pending":
         return "grey";
       default:
-        return "black"; // You can set a default color or handle other cases
+        return "black"; 
     }
   };
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("/user-requests/11");
+        const res = await axios.get(`/user-requests/${currentUser.user_id}`);
         setRequests(res.data.userRequests);
       } catch (err) {
         console.log(err);
@@ -82,7 +82,7 @@ function RequestBook() {
 
         <div class="add-book-right">
           <div class="container">
-            <div class="text">Request Book</div>
+            <div class="text" style={{maxWidth: "182px"}}>Request Book</div>
             <form onSubmit={formik.handleSubmit}>
               <div class="form-row">
                 <div class="input-data">

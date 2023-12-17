@@ -10,6 +10,7 @@ function AddBooks() {
       publisher: "",
       version: "",
       totalNumber: "",
+      availableCopies: ""
     },
 
     onSubmit: (values) => {
@@ -20,7 +21,8 @@ function AddBooks() {
         author: values.author,
         publisher: values.publisher,
         version: values.version,
-        totalCopies: Number(values.totalNumber)
+        totalCopies: Number(values.totalNumber),
+        availableCopies: Number(values.availableCopies)
       }
       axios({
         method:'POST',
@@ -126,6 +128,18 @@ function AddBooks() {
                   />
                   <div class="underline"></div>
                   <label for="">Total Books</label>
+                </div>
+                <div class="input-data">
+                  <input
+                    id="availableCopies"
+                    name="availableCopies"
+                    onChange={formik.handleChange}
+                    value={formik.values.availableCopies}
+                    type="number"
+                    required
+                  />
+                  <div class="underline"></div>
+                  <label for="">Available Books</label>
                 </div>
               </div>
               <div class="form-row submit-btn">

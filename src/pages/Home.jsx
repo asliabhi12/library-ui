@@ -21,6 +21,19 @@ function Home() {
     fetchData();
   }, []);
 
+  const requestBook = async (isbn) => {
+    try {
+      const res = await axios.post("/request", { readerId: Number(currentUser.user_id),
+        bookId: isbn,
+        requestType: "pending"})
+      alert("Requested Successfully")
+        
+    } catch (err) {
+      alert(err.message)
+      console.log(err);
+    }
+  }
+
   return (
     <div id="main">
       <div className="search-bar-container">
@@ -77,7 +90,9 @@ function Home() {
                 if (searchTerm === "") {
                   return book;
                 } else if (
-                  book.title.toLowerCase().includes(searchTerm.toLowerCase())
+                  book.title.toLowerCase().includes(searchTerm.toLowerCase())||
+                  book.author.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                  book.publisher.toLowerCase().includes(searchTerm.toLowerCase())
                 ) {
                   return book;
                 }
@@ -88,18 +103,22 @@ function Home() {
                   <img src={`./images/book-covers/${Math.floor(Math.random() * 8) + 1}.png`} alt="" />
                     <div className="book-title">
                       <span>{book.title}</span>
+                      
                     </div>
-                    {/* {currentUser.role === "reader" && (
+                    <span>{book.author}</span>
+                    {currentUser.role === "reader" && (
                       <div
                         className="book-title"
                         style={{
                           backgroundColor: "#696969",
                           marginTop: "1.2rem",
+                          "cursor":"pointer"
                         }}
+                        onClick={()=>requestBook(book.isbn)}
                       >
                         <span>Request</span>
                       </div>
-                    )} */}
+                    )}
                   </div>
                 </div>
               ))

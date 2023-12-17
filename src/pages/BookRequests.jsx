@@ -24,6 +24,8 @@ function BookRequests() {
     try {
       const res = await axios.post("/approve-request", { "req_Id":req_Id })
       alert(res.data.message)
+      var newList = requests.filter(request=> request.req_Id != req_Id)
+      setRequests(newList) 
         
     } catch (err) {
       alert(err.message)
@@ -31,6 +33,18 @@ function BookRequests() {
     }
   }
 
+  const denyRequest = async (req_Id) => {
+    try {
+      const res = await axios.post("/deny-request", { "req_Id":req_Id })
+      alert(res.data.message)
+      var newList = requests.filter(request=> request.req_Id != req_Id)
+      setRequests(newList) 
+        
+    } catch (err) {
+      alert(err.message)
+      console.log(err);
+    }
+  }
 
   return (
     <div id="main">
@@ -60,7 +74,7 @@ function BookRequests() {
                       <img onClick={() => approveRequest(request.req_Id)} src="./images/right-check.png" alt="" srcset="" />
                     </div>
                     <div style={{"cursor":"pointer"}}>
-                      <img src="./images/wrong-cross.png" alt="" srcset="" />
+                      <img onClick={() => denyRequest(request.req_Id)} src="./images/wrong-cross.png" alt="" srcset="" />
                     </div>
                   </div>
                 </div>
